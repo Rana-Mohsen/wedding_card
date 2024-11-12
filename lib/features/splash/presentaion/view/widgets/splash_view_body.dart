@@ -25,17 +25,6 @@ class _SplashViewBodyState extends State<SplashViewBody>
     initRotation();
   }
 
-  void initRotation() {
-    _controller = AnimationController(
-      duration: const Duration(seconds: 3),
-      vsync: this,
-    )..forward();
-    _rotation = Tween<double>(begin: 0.0, end: 4.0).animate(CurvedAnimation(
-      parent: _controller,
-      curve: Curves.easeInSine,
-    ));
-  }
-
   @override
   void dispose() {
     _controller.dispose();
@@ -52,9 +41,23 @@ class _SplashViewBodyState extends State<SplashViewBody>
           rotation: _rotation,
         ),
         const Center(
-          child: Text("Naurna"),
+          child: Text(
+            "Nawrna",
+            style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+          ),
         ),
       ],
     );
+  }
+
+  void initRotation() {
+    _controller = AnimationController(
+      duration: const Duration(seconds: 3),
+      vsync: this,
+    )..forward();
+    _rotation = Tween<double>(begin: 0.0, end: 4.0).animate(CurvedAnimation(
+      parent: _controller,
+      curve: Curves.easeInOut,
+    ));
   }
 }
