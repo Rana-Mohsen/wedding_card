@@ -71,9 +71,11 @@ class _SplashViewBodyState extends State<SplashViewBody>
       duration: const Duration(seconds: 2),
       vsync: this,
     )..forward();
-    _rotation = Tween<double>(begin: 0.0, end: 4.0).animate(CurvedAnimation(
-      parent: _controller,
-      curve: Curves.easeInOut,
-    ));
+    _rotation = Tween<double>(begin: 0.0, end: 4.0).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: Curves.easeInOut,
+      ),
+    );
   }
 }
