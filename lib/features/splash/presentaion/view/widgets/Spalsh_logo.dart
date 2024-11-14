@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:wedding_card/core/utils/assets.dart';
+import 'package:wedding_card/core/utils/routes.dart';
 
 class SplashLogo extends StatefulWidget {
   const SplashLogo({super.key, required this.rotation});
@@ -12,14 +14,12 @@ class SplashLogo extends StatefulWidget {
 
 class _SplashLogoState extends State<SplashLogo> {
   String currentImage = Assets.splashRingaBlack;
-  double? width = 90;
 
   @override
   void initState() {
     super.initState();
     rotationListener();
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,7 @@ class _SplashLogoState extends State<SplashLogo> {
         child: SvgPicture.asset(
           currentImage,
           key: ValueKey<String>(currentImage),
-          width: width,
+          width: 120,
         ),
       ),
     );
@@ -41,7 +41,6 @@ class _SplashLogoState extends State<SplashLogo> {
       if (status == AnimationStatus.completed) {
         setState(() {
           currentImage = Assets.splashRingaColored;
-          width = 120;
         });
       }
     });

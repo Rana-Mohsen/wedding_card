@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:wedding_card/core/utils/assets.dart';
-import 'package:wedding_card/features/splash/presentaion/view/widgets/Spalsh_logo.dart';
+import 'package:wedding_card/core/utils/routes.dart';
+import 'package:wedding_card/features/splash/presentaion/view/widgets/spalsh_logo.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -22,6 +24,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
   }
 
   void initRotationAnimation() {
+    navigateToHome();
     initRotation();
   }
 
@@ -40,19 +43,32 @@ class _SplashViewBodyState extends State<SplashViewBody>
         SplashLogo(
           rotation: _rotation,
         ),
-        const Center(
+        const Padding(
+          padding: EdgeInsets.only(top: 8.0),
           child: Text(
             "Nawrna",
-            style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 30,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
       ],
     );
   }
 
+  void navigateToHome() {
+    Future.delayed(const Duration(milliseconds: 3500), () {
+      // Get.to(() => const HomeView(),
+      //     transition: Transition.fade, duration: kTransitionDuration);
+      GoRouter.of(context).push(AppRoutes.kHomeView);
+    });
+  }
+
   void initRotation() {
     _controller = AnimationController(
-      duration: const Duration(seconds: 3),
+      duration: const Duration(seconds: 2),
       vsync: this,
     )..forward();
     _rotation = Tween<double>(begin: 0.0, end: 4.0).animate(CurvedAnimation(

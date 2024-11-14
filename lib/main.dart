@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wedding_card/core/utils/routes.dart';
 import 'package:wedding_card/features/splash/presentaion/view/splash_view.dart';
 
 void main() {
@@ -11,15 +12,15 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
+      routerConfig: AppRoutes.routes,
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        fontFamily: "Montserrat",
+        //colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        //useMaterial3: true,
       ),
-      home: const SplashView(),
     );
   }
 }
-
