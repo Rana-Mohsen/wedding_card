@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wedding_card/features/home/presentation/view/widgets/home_drawer.dart';
 import 'package:wedding_card/features/home/presentation/view/widgets/home_view_body.dart';
 
 class HomeView extends StatelessWidget {
@@ -6,8 +7,21 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: HomeViewBody(),
+    return Scaffold(
+      appBar: AppBar(
+        leading: Builder(
+          builder: (context) {
+            return IconButton(
+              icon: const Icon(Icons.menu),
+              onPressed: () {
+                Scaffold.of(context).openDrawer();
+              },
+            );
+          },
+        ),
+      ),
+      drawer: const HomeDrawer(),
+      body: const HomeViewBody(),
     );
   }
 }
