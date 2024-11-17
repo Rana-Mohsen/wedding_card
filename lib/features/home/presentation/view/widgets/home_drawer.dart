@@ -15,7 +15,7 @@ class HomeDrawer extends StatelessWidget {
     },
     {
       "image": Assets.homeBackgroundBlueAndGold,
-      "view": Text("222"),
+      "view": Center(child: Text("222")),
     }
   ];
   @override
