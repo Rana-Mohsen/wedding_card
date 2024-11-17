@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:wedding_card/core/utils/assets.dart';
+import 'package:wedding_card/features/home/entity/drawer_item.dart';
 import 'package:wedding_card/features/home/presentation/view/widgets/card_with_image_body.dart';
 import 'package:wedding_card/features/home/presentation/view/widgets/custom_drawer_header.dart';
 
@@ -8,16 +9,7 @@ import 'drawer_listview_image.dart';
 
 class HomeDrawer extends StatelessWidget {
   const HomeDrawer({super.key});
-  final List<Map<String, dynamic>> drawerImages = const [
-    {
-      "image": Assets.homeBackgroundBlueAndGoldExample,
-      "view": CardWithImageBody()
-    },
-    {
-      "image": Assets.homeBackgroundBlueAndGold,
-      "view": Center(child: Text("222")),
-    }
-  ];
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -26,16 +18,29 @@ class HomeDrawer extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: [
           const CustomDrawerHeader(),
-          DrawerListviewImage(
-            image: drawerImages[0]["image"],
-            view: drawerImages[0]["view"],
-          ),
-          DrawerListviewImage(
-            image: drawerImages[1]["image"],
-            view: drawerImages[1]["view"],
-          ),
+          ..._buildDrawerItems(),
         ],
       ),
     );
+  }
+
+  final List<DrawerItem> drawerImages = const [
+    DrawerItem(
+      image: Assets.homeBackgroundBlueAndGoldExample,
+      view: CardWithImageBody(),
+    ),
+    DrawerItem(
+      image: Assets.homeBackgroundBlueAndGold,
+      view: Center(child: Text("222")),
+    ),
+  ];
+
+  List<Widget> _buildDrawerItems() {
+    return drawerImages.map((item) {
+      return DrawerListviewImage(
+        image: item.image,
+        view: item.view,
+      );
+    }).toList();
   }
 }
