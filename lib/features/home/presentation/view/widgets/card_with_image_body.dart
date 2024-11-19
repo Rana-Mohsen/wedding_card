@@ -21,8 +21,8 @@ class CardWithImageBody extends StatelessWidget {
           ),
         ),
         Positioned(
-          top: hight / 3.1,
-          left: width / 3.2,
+          top: hight / 3.13,
+          left: width / 3.25,
           child: PickedImage(),
         ),
       ],
