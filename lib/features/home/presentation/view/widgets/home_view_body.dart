@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:wedding_card/features/home/presentation/view/widgets/custom_icon_button.dart';
+import 'package:wedding_card/features/home/presentation/view/widgets/picked_image.dart';
 import 'package:wedding_card/features/home/presentation/view_model/drawer_image_cubit/drawer_image_cubit.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -10,6 +12,9 @@ class HomeViewBody extends StatelessWidget {
   final double _sidePos = 15;
   @override
   Widget build(BuildContext context) {
+    double hight = MediaQuery.sizeOf(context).height;
+    double width = MediaQuery.sizeOf(context).width;
+
     return Stack(
       children: [
         BlocBuilder<DrawerImageCubit, DrawerImageState>(
@@ -23,21 +28,21 @@ class HomeViewBody extends StatelessWidget {
         Positioned(
           top: _topPos,
           left: _sidePos,
-          child: IconButton(
-            icon: const Icon(Icons.menu),
+          child: CustomIconButton(
+            icon: Icons.menu,
             onPressed: () {
               Scaffold.of(context).openDrawer();
             },
           ),
         ),
         Positioned(
-          top: _topPos,
-          right: _sidePos,
-          child: IconButton(
-            icon: const Icon(Icons.info),
-            onPressed: () {},
-          ),
-        ),
+            top: _topPos,
+            right: _sidePos,
+            child: CustomIconButton(
+              icon: Icons.info,
+              onPressed: () {},
+            )),
+       
       ],
     );
   }

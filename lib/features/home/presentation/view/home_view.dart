@@ -7,21 +7,9 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // appBar: AppBar(
-      //   leading: Builder(
-      //     builder: (context) {
-      //       return IconButton(
-      //         icon: const Icon(Icons.menu),
-      //         onPressed: () {
-      //           Scaffold.of(context).openDrawer();
-      //         },
-      //       );
-      //     },
-      //   ),
-      // ),
-      drawer: const HomeDrawer(),
-      body: const HomeViewBody(),
+    return const Scaffold(
+      drawer: HomeDrawer(),
+      body: HomeViewBody(),
     );
   }
 }
