@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wedding_card/core/utils/functions/format_date.dart';
 import 'package:wedding_card/features/home/domain/usecase/pick_date_usecase.dart';
 import 'package:wedding_card/features/home/presentation/view/widgets/custom_icon_button.dart';
 
@@ -34,7 +35,7 @@ class _CustomDatePickerState extends State<CustomDatePicker> {
           width: 10,
         ),
         Text(
-          "${selectedDate.toLocal()}".split(' ')[0].replaceAll('-', ' '),
+          formatDate(selectedDate.toLocal()),
         ),
       ],
     );
