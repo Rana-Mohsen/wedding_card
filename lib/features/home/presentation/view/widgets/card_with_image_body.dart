@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wedding_card/core/utils/assets.dart';
+import 'package:wedding_card/features/home/presentation/view/widgets/custom_date_picker.dart';
 import 'package:wedding_card/features/home/presentation/view/widgets/custom_icon_button.dart';
 import 'package:wedding_card/features/home/presentation/view/widgets/picked_image.dart';
 
@@ -11,21 +12,7 @@ class CardWithImageBody extends StatefulWidget {
 }
 
 class _CardWithImageBodyState extends State<CardWithImageBody> {
-  DateTime selectedDate = DateTime.now();
-
-  _selectDate(BuildContext context) async {
-    final DateTime? picked = await showDatePicker(
-      context: context,
-      initialDate: selectedDate, // Refer step 1
-      firstDate: DateTime(2000),
-      lastDate: DateTime(2025),
-    );
-    if (picked != null && picked != selectedDate)
-      setState(() {
-        selectedDate = picked;
-      });
-  }
-
+ 
   @override
   Widget build(BuildContext context) {
     double hight = MediaQuery.sizeOf(context).height;
@@ -38,7 +25,7 @@ class _CardWithImageBodyState extends State<CardWithImageBody> {
           fit: BoxFit.contain,
         ),
       ),
-      child: Column(
+      child: const Column(
         // mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Spacer(
@@ -54,21 +41,7 @@ class _CardWithImageBodyState extends State<CardWithImageBody> {
             textAlign: TextAlign.center,
             decoration: InputDecoration(hintText: "Name & Name"),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              CustomIconButton(
-                icon: Icons.calendar_month,
-                onPressed: () => _selectDate(context),
-              ),
-              SizedBox(
-                width: 10,
-              ),
-              Text(
-                "${selectedDate.toLocal()}".split(' ')[0].replaceAll('-', ' '),
-              ),
-            ],
-          ),
+          CustomDatePicker(),
           Spacer(
             flex: 3,
           )
