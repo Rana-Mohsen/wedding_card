@@ -81,7 +81,12 @@ flutter:
     - family: Montserrat
       fonts:
         - asset: assets/fonts/Montserrat-VariableFont_wght.ttf
-
+    - family: AlexBrush
+      fonts:
+        - asset: assets/fonts/AlexBrush-Regular.ttf
+    - family: Arimo
+      fonts:
+        - asset: assets/fonts/Arimo-VariableFont_wght.ttf
   
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

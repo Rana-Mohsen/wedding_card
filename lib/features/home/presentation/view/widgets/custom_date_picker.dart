@@ -28,13 +28,15 @@ class _CustomDatePickerState extends State<CustomDatePicker> {
         ),
         Text(
           formatDate(selectedDate.toLocal()),
+          style: TextStyle(fontFamily: "Arimo"),
         ),
-        
       ],
     );
   }
+
   _selectDate(BuildContext context) async {
-    final DateTime? picked = await pickDateUseCase.selectDate(context,selectedDate);
+    final DateTime? picked =
+        await pickDateUseCase.selectDate(context, selectedDate);
     if (picked != null && picked != selectedDate) {
       setState(() {
         selectedDate = picked;

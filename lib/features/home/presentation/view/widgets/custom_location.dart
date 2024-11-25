@@ -15,10 +15,11 @@ class CustomLocation extends StatelessWidget {
           icon: Icons.location_on,
           onPressed: () {},
         ),
-        SizedBox(
+        const SizedBox(
           width: 200,
           child: Text(
             "hfjkdhg;djflskd;lskdl;sklfksd;kjkljljljjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj",
+            style: TextStyle(fontFamily: "Arimo"),
           ),
         )
       ],

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wedding_card/core/utils/assets.dart';
+import 'package:wedding_card/core/utils/media_quairy_extention.dart';
 import 'package:wedding_card/features/home/presentation/view/widgets/custom_date_picker.dart';
 import 'package:wedding_card/features/home/presentation/view/widgets/custom_icon_button.dart';
 import 'package:wedding_card/features/home/presentation/view/widgets/custom_location.dart';
@@ -29,22 +30,26 @@ class _CardWithImageBodyState extends State<CardWithImageBody> {
         // mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Spacer(
-            flex: 4,
+            flex: 10,
           ),
           Center(
-            child: const PickedImage(),
+            child: PickedImage(),
           ),
           Spacer(
-            flex: 1,
+            flex: 2,
           ),
           TextField(
             textAlign: TextAlign.center,
+            style: TextStyle(fontFamily: "AlexBrush", fontSize: 28),
             decoration: InputDecoration(hintText: "Name & Name"),
           ),
           CustomDatePicker(),
+          // Spacer(
+          //   flex: 1,
+          // ),
           CustomLocation(),
           Spacer(
-            flex: 3,
+            flex: 5,
           ),
         ],
       ),
