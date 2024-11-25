@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:wedding_card/core/utils/assets.dart';
 import 'package:wedding_card/features/home/presentation/view/widgets/custom_date_picker.dart';
 import 'package:wedding_card/features/home/presentation/view/widgets/custom_icon_button.dart';
+import 'package:wedding_card/features/home/presentation/view/widgets/custom_location.dart';
 import 'package:wedding_card/features/home/presentation/view/widgets/picked_image.dart';
 
 class CardWithImageBody extends StatefulWidget {
@@ -12,11 +13,10 @@ class CardWithImageBody extends StatefulWidget {
 }
 
 class _CardWithImageBodyState extends State<CardWithImageBody> {
- 
   @override
   Widget build(BuildContext context) {
-    double hight = MediaQuery.sizeOf(context).height;
-    double width = MediaQuery.sizeOf(context).width;
+    // double hight = MediaQuery.sizeOf(context).height;
+    // double width = MediaQuery.sizeOf(context).width;
     return Container(
       //constraints: const BoxConstraints.expand(),
       decoration: const BoxDecoration(
@@ -42,9 +42,10 @@ class _CardWithImageBodyState extends State<CardWithImageBody> {
             decoration: InputDecoration(hintText: "Name & Name"),
           ),
           CustomDatePicker(),
+          CustomLocation(),
           Spacer(
             flex: 3,
-          )
+          ),
         ],
       ),
     );

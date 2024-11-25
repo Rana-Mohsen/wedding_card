@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:wedding_card/core/utils/media_quairy_extention.dart';
 
 class PickedImage extends StatefulWidget {
   const PickedImage({super.key});
@@ -26,8 +27,8 @@ Future pickImage() async {
 class _PickedImageState extends State<PickedImage> {
   @override
   Widget build(BuildContext context) {
-    double hight = MediaQuery.sizeOf(context).height;
-    double width = MediaQuery.sizeOf(context).width;
+    // double hight = MediaQuery.sizeOf(context).height;
+    // double width = MediaQuery.sizeOf(context).width;
 
     return GestureDetector(
       onTap: () async {
@@ -36,8 +37,8 @@ class _PickedImageState extends State<PickedImage> {
       },
       child: Container(
         clipBehavior: Clip.hardEdge,
-        height: hight / 3.64,
-        width: width / 2.6,
+        height: context.screenHeight / 3.64,
+        width: context.screenWidth / 2.6,
         decoration: BoxDecoration(
           color: Colors.black.withOpacity(0.2),
           borderRadius: const BorderRadius.only(

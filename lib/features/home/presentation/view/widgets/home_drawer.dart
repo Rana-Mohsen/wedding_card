@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:wedding_card/core/utils/assets.dart';
+import 'package:wedding_card/core/utils/media_quairy_extention.dart';
 import 'package:wedding_card/features/home/domain/entity/drawer_item.dart';
 import 'package:wedding_card/features/home/presentation/view/widgets/card_with_image_body.dart';
 import 'package:wedding_card/features/home/presentation/view/widgets/custom_drawer_header.dart';
@@ -13,7 +14,7 @@ class HomeDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      width: MediaQuery.of(context).size.width / 2,
+      width: context.screenHeight / 2,
       child: ListView(
         padding: EdgeInsets.zero,
         children: [

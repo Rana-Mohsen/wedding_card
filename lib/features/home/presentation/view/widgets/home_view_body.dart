@@ -12,8 +12,8 @@ class HomeViewBody extends StatelessWidget {
   final double _sidePos = 15;
   @override
   Widget build(BuildContext context) {
-    double hight = MediaQuery.sizeOf(context).height;
-    double width = MediaQuery.sizeOf(context).width;
+    // double hight = MediaQuery.sizeOf(context).height;
+    // double width = MediaQuery.sizeOf(context).width;
 
     return Stack(
       children: [

@@ -13,14 +13,6 @@ class CustomDatePicker extends StatefulWidget {
 class _CustomDatePickerState extends State<CustomDatePicker> {
   DateTime selectedDate = DateTime.now();
   PickDateUseCase pickDateUseCase = PickDateUseCase();
-  _selectDate(BuildContext context) async {
-    final DateTime? picked = await pickDateUseCase.selectDate(context,selectedDate);
-    if (picked != null && picked != selectedDate) {
-      setState(() {
-        selectedDate = picked;
-      });
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +29,16 @@ class _CustomDatePickerState extends State<CustomDatePicker> {
         Text(
           formatDate(selectedDate.toLocal()),
         ),
+        
       ],
     );
+  }
+  _selectDate(BuildContext context) async {
+    final DateTime? picked = await pickDateUseCase.selectDate(context,selectedDate);
+    if (picked != null && picked != selectedDate) {
+      setState(() {
+        selectedDate = picked;
+      });
+    }
   }
 }
