@@ -18,7 +18,7 @@ class CustomLocation extends StatelessWidget {
         const SizedBox(
           width: 200,
           child: Text(
-            "hfjkdhg;djflskd;lskdl;sklfksd;kjkljljljjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj",
+            "Mansoura - elmashya - bride haul ",
             style: TextStyle(fontFamily: "Arimo"),
           ),
         )

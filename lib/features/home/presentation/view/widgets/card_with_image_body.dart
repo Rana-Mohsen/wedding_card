@@ -4,6 +4,7 @@ import 'package:wedding_card/core/utils/media_quairy_extention.dart';
 import 'package:wedding_card/features/home/presentation/view/widgets/custom_date_picker.dart';
 import 'package:wedding_card/features/home/presentation/view/widgets/custom_icon_button.dart';
 import 'package:wedding_card/features/home/presentation/view/widgets/custom_location.dart';
+import 'package:wedding_card/features/home/presentation/view/widgets/custom_names_textfield.dart';
 import 'package:wedding_card/features/home/presentation/view/widgets/picked_image.dart';
 
 class CardWithImageBody extends StatefulWidget {
@@ -38,11 +39,7 @@ class _CardWithImageBodyState extends State<CardWithImageBody> {
           Spacer(
             flex: 2,
           ),
-          TextField(
-            textAlign: TextAlign.center,
-            style: TextStyle(fontFamily: "AlexBrush", fontSize: 28),
-            decoration: InputDecoration(hintText: "Name & Name"),
-          ),
+          CustomNamesTextfield(),
           CustomDatePicker(),
           // Spacer(
           //   flex: 1,

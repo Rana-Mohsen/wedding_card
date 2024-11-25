@@ -23,12 +23,15 @@ class _CustomDatePickerState extends State<CustomDatePicker> {
           icon: Icons.calendar_month,
           onPressed: () => _selectDate(context),
         ),
-        const SizedBox(
-          width: 10,
-        ),
-        Text(
-          formatDate(selectedDate.toLocal()),
-          style: TextStyle(fontFamily: "Arimo"),
+        // const SizedBox(
+        //   width: 10,
+        // ),
+        Padding(
+          padding: const EdgeInsets.only(right: 24.0),
+          child: Text(
+            formatDate(selectedDate.toLocal()),
+            style: const TextStyle(fontFamily: "Arimo", fontSize: 20),
+          ),
         ),
       ],
     );
