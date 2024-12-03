@@ -14,7 +14,7 @@ class HomeDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      width: context.screenHeight / 2,
+      width: context.screenWidth / 2,
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
