@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:wedding_card/core/utils/functions/format_date.dart';
 import 'package:wedding_card/features/home/domain/usecase/pick_date_usecase.dart';
 import 'package:wedding_card/features/home/presentation/view/widgets/custom_icon_button.dart';
 
 class CustomDatePicker extends StatefulWidget {
-  const CustomDatePicker({super.key});
-
+  const CustomDatePicker({super.key, required this.onDatePicked});
+  final ValueChanged<DateTime> onDatePicked;
   @override
   State<CustomDatePicker> createState() => _CustomDatePickerState();
 }
@@ -45,5 +46,6 @@ class _CustomDatePickerState extends State<CustomDatePicker> {
         selectedDate = picked;
       });
     }
+    widget.onDatePicked(selectedDate);
   }
 }

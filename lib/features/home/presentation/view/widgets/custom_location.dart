@@ -5,8 +5,15 @@ import 'package:wedding_card/features/home/presentation/view/widgets/custom_icon
 import 'package:wedding_card/features/home/presentation/view/widgets/custom_location_textfield.dart';
 import 'package:wedding_card/features/home/presentation/view/widgets/custom_names_textfield.dart';
 
-class CustomLocation extends StatelessWidget {
-  const CustomLocation({super.key});
+class CustomLocation extends StatefulWidget {
+  const CustomLocation({super.key, required this.controller});
+  final TextEditingController controller;
+
+  @override
+  State<CustomLocation> createState() => _CustomLocationState();
+}
+
+class _CustomLocationState extends State<CustomLocation> {
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +24,9 @@ class CustomLocation extends StatelessWidget {
           icon: Icons.location_on,
           onPressed: () {},
         ),
-        const SizedBox(
+         SizedBox(
           width: 200,
-          child: CustomLocationTextField(),
+          child: CustomLocationTextField(controller: widget.controller,),
         )
       ],
     );

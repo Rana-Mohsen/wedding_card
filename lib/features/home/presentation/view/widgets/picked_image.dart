@@ -6,8 +6,11 @@ import 'package:image_picker/image_picker.dart';
 import 'package:wedding_card/core/utils/media_quairy_extention.dart';
 
 class PickedImage extends StatefulWidget {
-  const PickedImage({super.key});
-
+  const PickedImage({
+    super.key,
+    required this.onImagePicked,
+  });
+  final ValueChanged<File> onImagePicked;
   @override
   State<PickedImage> createState() => _PickedImageState();
 }
@@ -20,7 +23,7 @@ Future pickImage() async {
     final imageTemp = File(image.path);
     pickedImage = imageTemp;
   } on PlatformException catch (e) {
-    print('Failed to pick image: $e');
+    debugPrint('Failed to pick image: $e');
   }
 }
 
@@ -33,6 +36,7 @@ class _PickedImageState extends State<PickedImage> {
     return GestureDetector(
       onTap: () async {
         await pickImage();
+        widget.onImagePicked(pickedImage!);
         setState(() {});
       },
       child: Container(
