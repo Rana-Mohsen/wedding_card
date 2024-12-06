@@ -2,15 +2,17 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:wedding_card/core/utils/media_quairy_extention.dart';
+import 'package:wedding_card/features/home/presentation/view_model/card_data_cubit/card_data_cubit.dart';
 
 class PickedImage extends StatefulWidget {
   const PickedImage({
     super.key,
-    required this.onImagePicked,
+   
   });
-  final ValueChanged<File> onImagePicked;
+ 
   @override
   State<PickedImage> createState() => _PickedImageState();
 }
@@ -36,7 +38,8 @@ class _PickedImageState extends State<PickedImage> {
     return GestureDetector(
       onTap: () async {
         await pickImage();
-        widget.onImagePicked(pickedImage!);
+        BlocProvider.of<CardDataCubit>(context).pickedImage = pickedImage!;
+        //widget.onImagePicked(pickedImage!);
         setState(() {});
       },
       child: Container(

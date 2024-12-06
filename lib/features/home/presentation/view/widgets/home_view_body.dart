@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wedding_card/features/home/presentation/view/widgets/custom_icon_button.dart';
 import 'package:wedding_card/features/home/presentation/view/widgets/picked_image.dart';
+import 'package:wedding_card/features/home/presentation/view_model/card_data_cubit/card_data_cubit.dart';
 import 'package:wedding_card/features/home/presentation/view_model/drawer_image_cubit/drawer_image_cubit.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -35,6 +36,22 @@ class HomeViewBody extends StatelessWidget {
             },
           ),
         ),
+        BlocBuilder<DrawerImageCubit, DrawerImageState>(
+          builder: (context, state) {
+            if (state is DrawerImageSelected) {
+              return Positioned(
+                  top: _topPos,
+                  right: _sidePos + 50,
+                  child: CustomIconButton(
+                    icon: Icons.check_circle_outline_outlined,
+                    onPressed: () {
+                      BlocProvider.of<CardDataCubit>(context).submitData();
+                    },
+                  ));
+            }
+            return Container();
+          },
+        ),
         Positioned(
             top: _topPos,
             right: _sidePos,
@@ -42,7 +59,6 @@ class HomeViewBody extends StatelessWidget {
               icon: Icons.info,
               onPressed: () {},
             )),
-       
       ],
     );
   }

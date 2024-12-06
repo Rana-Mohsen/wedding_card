@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:wedding_card/features/home/presentation/view_model/card_data_cubit/card_data_cubit.dart';
 
 class CustomNamesTextfield extends StatefulWidget {
-  const CustomNamesTextfield({super.key, required this.controller});
-  final TextEditingController controller;
+  const CustomNamesTextfield({super.key});
+
 
   @override
   State<CustomNamesTextfield> createState() => _CustomNamesTextfieldState();
@@ -12,7 +14,7 @@ class _CustomNamesTextfieldState extends State<CustomNamesTextfield> {
   @override
   Widget build(BuildContext context) {
     return TextField(
-      controller: widget.controller,
+      controller: BlocProvider.of<CardDataCubit>(context).nameController,
       textAlign: TextAlign.center,
       //scrollPadding: EdgeInsets.all(0),
       cursorHeight: 30,

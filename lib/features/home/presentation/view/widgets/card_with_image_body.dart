@@ -14,10 +14,17 @@ class CardWithImageBody extends StatefulWidget {
 }
 
 class _CardWithImageBodyState extends State<CardWithImageBody> {
-  final TextEditingController _nameController = TextEditingController();
-  final TextEditingController _locationController = TextEditingController();
-  late DateTime _selectedDate;
-  late File _pickedImage;
+  // final TextEditingController _nameController = TextEditingController();
+  // final TextEditingController _locationController = TextEditingController();
+  // late DateTime _selectedDate;
+  // late File _pickedImage;
+  // _submitData() {
+  //   String name = _nameController.text;
+  //   String location = _locationController.text;
+  //   String date = _selectedDate.toString();
+  //   String image = _pickedImage.path.toString();
+  //   print(name + "\n" + location + "\n" + date + "\n" + image);
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -28,32 +35,34 @@ class _CardWithImageBodyState extends State<CardWithImageBody> {
           fit: BoxFit.contain,
         ),
       ),
-      child: Column(
+      child: const Column(
         children: [
-          const Spacer(
+           Spacer(
             flex: 10,
           ),
           Center(
             child: PickedImage(
-              onImagePicked: (image) {
-                _pickedImage = image;
-              },
+              
             ),
           ),
-          const Spacer(
+           Spacer(
             flex: 2,
           ),
-          CustomNamesTextfield(controller: _nameController,),
+          CustomNamesTextfield(
+            // controller: _nameController,
+          ),
           CustomDatePicker(
-            onDatePicked: (date) {
-              _selectedDate = date;
-            },
+            // onDatePicked: (date) {
+            //   _selectedDate = date;
+            // },
           ),
           // Spacer(
           //   flex: 1,
           // ),
-          CustomLocation(controller: _locationController,),
-          const  Spacer(
+          CustomLocation(
+            // controller: _locationController,
+          ),
+           Spacer(
             flex: 5,
           ),
         ],
