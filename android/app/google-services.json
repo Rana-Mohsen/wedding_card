@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "764858582316",
+    "project_id": "wedding-card-7f536",
+    "storage_bucket": "wedding-card-7f536.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:764858582316:android:74bd4ba5b3e792c56cd889",
+        "android_client_info": {
+          "package_name": "com.example.wedding_card"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1tGiCJz79OtkI3i0LVxlThFTvfyZsm2s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
