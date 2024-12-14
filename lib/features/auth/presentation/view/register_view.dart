@@ -16,7 +16,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   
   @override
   Widget build(BuildContext context) {
-    return RegisterViewBody();
+    return const RegisterViewBody();
   }
 
 }
