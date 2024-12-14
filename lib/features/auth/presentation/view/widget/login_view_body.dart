@@ -156,7 +156,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
     }
   }
 
-  void _handleGenericException(e) {
+  void _handleGenericException( e) {
     print(e);
     snackBarMessage(context, "There was an error");
   }
