@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
-import 'package:wedding_card/core/firebase_service.dart';
+import 'package:wedding_card/core/services/firebase_service.dart';
 import 'package:wedding_card/core/utils/functions/snack_bar.dart';
 import 'package:wedding_card/core/validators.dart';
 import 'package:wedding_card/features/auth/presentation/view/widget/custom_textformfield.dart';
@@ -88,7 +88,8 @@ String? password;
                 ),
                 CustomeButton(
                   text: 'REGISTER',
-                  onTap: _validateForm,
+                  onTap:// _validateForm
+                  (){},
                 ),
                 const SizedBox(
                   height: 10,
@@ -123,23 +124,23 @@ String? password;
     );
   }
 
-    _validateForm() async {
-    if (_formKey.currentState!.validate()) {
-      isLoading = true;
-      setState(() {});
-      try {
-        await FirebaseService.createUser(email: email!, password: password!);
-        // Navigator.pushReplacement(context,
-        //     MaterialPageRoute(builder: (context) => const Navigation()));
-      } on FirebaseAuthException catch (e) {
-        if (e.code == "weak_password") {
-          snackBarMessage(context, "your password is weak");
-        } else if (e.code == "email-already-in-use") {
-          snackBarMessage(context, "email is already in use");
-        }
-      }
-      isLoading = false;
-      setState(() {});
-    }
-  }
+  //   _validateForm() async {
+  //   if (_formKey.currentState!.validate()) {
+  //     isLoading = true;
+  //     setState(() {});
+  //     try {
+  //       await FirebaseService.createUser(email: email!, password: password!);
+  //       // Navigator.pushReplacement(context,
+  //       //     MaterialPageRoute(builder: (context) => const Navigation()));
+  //     } on FirebaseAuthException catch (e) {
+  //       if (e.code == "weak_password") {
+  //         snackBarMessage(context, "your password is weak");
+  //       } else if (e.code == "email-already-in-use") {
+  //         snackBarMessage(context, "email is already in use");
+  //       }
+  //     }
+  //     isLoading = false;
+  //     setState(() {});
+  //   }
+  // }
 }

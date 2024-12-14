@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wedding_card/core/firebase_service.dart';
+import 'package:wedding_card/core/services/firebase_service.dart';
 import 'package:wedding_card/core/utils/routes.dart';
 import 'package:wedding_card/features/splash/presentaion/view/splash_view.dart';
 

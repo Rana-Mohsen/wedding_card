@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
-import 'package:wedding_card/core/firebase_service.dart';
+import 'package:wedding_card/core/services/firebase_service.dart';
 import 'package:wedding_card/core/utils/functions/snack_bar.dart';
 import 'package:wedding_card/core/validators.dart';
 import 'package:wedding_card/features/auth/presentation/view/register_view.dart';
@@ -82,7 +82,8 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                   height: 30,
                 ),
                 CustomeButton(
-                  onTap: _validateLoginForm,
+                  onTap:// _validateLoginForm
+                  (){},
                   text: 'LOGIN',
                 ),
                 const SizedBox(
@@ -120,44 +121,44 @@ class _LoginViewBodyState extends State<LoginViewBody> {
       ),
     );
   }
-    _validateLoginForm() async {
-    if (_formKey.currentState!.validate()) {
-      setState(() {
-        isLoading = true;
-      });
+  //   _validateLoginForm() async {
+  //   if (_formKey.currentState!.validate()) {
+  //     setState(() {
+  //       isLoading = true;
+  //     });
 
-      try {
-        await FirebaseService.signInUser(email: email!, password: password!);
-        // Navigator.pushReplacement(
-        //   context,
-        //   MaterialPageRoute(
-        //     builder: (context) => const Navigation(),
-        //   ),
-        // );
-      } on FirebaseAuthException catch (e) {
-        _handleFirebaseAuthException(e);
-      } catch (e) {
-        _handleGenericException(e);
-      } finally {
-        setState(() {
-          isLoading = false;
-        });
-      }
-    }
-  }
+  //     try {
+  //       await FirebaseService.signInUser(email: email!, password: password!);
+  //       // Navigator.pushReplacement(
+  //       //   context,
+  //       //   MaterialPageRoute(
+  //       //     builder: (context) => const Navigation(),
+  //       //   ),
+  //       // );
+  //     } on FirebaseAuthException catch (e) {
+  //       _handleFirebaseAuthException(e);
+  //     } catch (e) {
+  //       _handleGenericException(e);
+  //     } finally {
+  //       setState(() {
+  //         isLoading = false;
+  //       });
+  //     }
+  //   }
+  // }
 
-  void _handleFirebaseAuthException(FirebaseAuthException e) {
-    print(e);
+  // void _handleFirebaseAuthException(FirebaseAuthException e) {
+  //   print(e);
 
-    if (e.code == "wrong-password") {
-      snackBarMessage(context, "Your password is wrong");
-    } else if (e.code == "user-not-found") {
-      snackBarMessage(context, "User not found");
-    }
-  }
+  //   if (e.code == "wrong-password") {
+  //     snackBarMessage(context, "Your password is wrong");
+  //   } else if (e.code == "user-not-found") {
+  //     snackBarMessage(context, "User not found");
+  //   }
+  // }
 
-  void _handleGenericException( e) {
-    print(e);
-    snackBarMessage(context, "There was an error");
-  }
+  // void _handleGenericException( e) {
+  //   print(e);
+  //   snackBarMessage(context, "There was an error");
+  // }
 }

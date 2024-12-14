@@ -6,44 +6,44 @@ abstract class Failure {
   Failure(this.message);
 }
 
-class AuthException extends Failure {
-  AuthException(super.message);
-  factory AuthException.fromFirebase(FirebaseAuthException e) {
+class AuthFailure extends Failure {
+  AuthFailure(super.message);
+  factory AuthFailure.fromFirebase(FirebaseAuthException e) {
     switch (e.code) {
       case "wrong-password":
-        return AuthException("Wrong email or password");
+        return AuthFailure("Wrong email or password");
       case "user-not-found":
-        return AuthException("User not found");
+        return AuthFailure("User not found");
       case "invalid-email":
-        return AuthException("Invalid email address");
+        return AuthFailure("Invalid email address");
       case "user-disabled":
-        return AuthException("User account has been disabled");
+        return AuthFailure("User account has been disabled");
       case "email-already-in-use":
-        return AuthException("Email is already in use");
+        return AuthFailure("Email is already in use");
       case "operation-not-allowed":
-        return AuthException("Email/password accounts are not enabled");
+        return AuthFailure("Email/password accounts are not enabled");
       case "weak-password":
-        return AuthException("Password is too weak");
+        return AuthFailure("Password is too weak");
       case "too-many-requests":
-        return AuthException("Too many attempts. Try again later");
+        return AuthFailure("Too many attempts. Try again later");
       case "account-exists-with-different-credential":
-        return AuthException(
+        return AuthFailure(
             "Account exists with different sign-in credentials");
       case "credential-already-in-use":
-        return AuthException("This credential is already in use");
+        return AuthFailure("This credential is already in use");
       case "requires-recent-login":
-        return AuthException("Recent login required. Please log in again");
+        return AuthFailure("Recent login required. Please log in again");
       case "network-request-failed":
-        return AuthException("Network error occurred");
+        return AuthFailure("Network error occurred");
       case "internal-error":
-        return AuthException("Internal error occurred");
+        return AuthFailure("Internal error occurred");
       default:
-        return AuthException("An unknown error occurred. Please try again");
+        return AuthFailure("An unknown error occurred. Please try again");
     }
   }
 
-  factory AuthException.fromGeneric(e) {
+  factory AuthFailure.fromGeneric(e) {
     debugPrint(e.toString());
-    return AuthException("An unknown error occurred. Please try again");
+    return AuthFailure("An unknown error occurred. Please try again");
   }
 }
