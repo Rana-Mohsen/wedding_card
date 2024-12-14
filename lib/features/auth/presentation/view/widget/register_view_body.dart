@@ -15,8 +15,8 @@ class RegisterViewBody extends StatefulWidget {
 }
 
 class _RegisterViewBodyState extends State<RegisterViewBody> {
-String? password;
- String? email;
+  String? password;
+  String? email;
   bool visible = true;
 
   bool isLoading = false;
@@ -88,8 +88,16 @@ String? password;
                 ),
                 CustomeButton(
                   text: 'REGISTER',
-                  onTap:// _validateForm
-                  (){},
+                  onTap: // _validateForm
+                      () {
+                    if (_formKey.currentState!.validate()) {
+                      isLoading = true;
+                      setState(() {});
+                      
+                      isLoading = false;
+                      setState(() {});
+                    }
+                  },
                 ),
                 const SizedBox(
                   height: 10,
@@ -107,8 +115,7 @@ String? password;
                       },
                       child: const Text(
                         "Login",
-                        style: TextStyle(
-                           fontWeight: FontWeight.w600),
+                        style: TextStyle(fontWeight: FontWeight.w600),
                       ),
                     ),
                   ],
