@@ -1,8 +1,5 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
-import 'package:wedding_card/core/services/firebase_service.dart';
-import 'package:wedding_card/core/utils/functions/snack_bar.dart';
 import 'package:wedding_card/core/validators.dart';
 import 'package:wedding_card/features/auth/presentation/view/register_view.dart';
 import 'package:wedding_card/features/auth/presentation/view/widget/custom_textformfield.dart';
