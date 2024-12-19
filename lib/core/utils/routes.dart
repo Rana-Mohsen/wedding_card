@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:go_router/go_router.dart';
+import 'package:wedding_card/core/utils/service_locator.dart';
 import 'package:wedding_card/features/auth/data/repos/auth_repo_impl.dart';
 import 'package:wedding_card/features/auth/domain/repos/auth_repo.dart';
 import 'package:wedding_card/features/auth/domain/usecases/login_user_usecase.dart';
@@ -42,16 +43,8 @@ abstract class AppRoutes {
         providers: [
           BlocProvider(
             create: (context) => AuthBloc(
-              RegisterUserUsecase(
-                AuthRepoImpl(
-                  FirebaseAuth.instance,
-                ),
-              ),
-              LoginUserUsecase(
-                AuthRepoImpl(
-                  FirebaseAuth.instance,
-                ),
-              ),
+              RegisterUserUsecase(getIt.get<AuthRepoImpl>()),
+              LoginUserUsecase(getIt.get<AuthRepoImpl>()),
             ),
           ),
         ],
@@ -64,16 +57,8 @@ abstract class AppRoutes {
         providers: [
           BlocProvider(
             create: (context) => AuthBloc(
-              RegisterUserUsecase(
-                AuthRepoImpl(
-                  FirebaseAuth.instance,
-                ),
-              ),
-              LoginUserUsecase(
-                AuthRepoImpl(
-                  FirebaseAuth.instance,
-                ),
-              ),
+              RegisterUserUsecase(getIt.get<AuthRepoImpl>()),
+              LoginUserUsecase(getIt.get<AuthRepoImpl>()),
             ),
           ),
         ],
