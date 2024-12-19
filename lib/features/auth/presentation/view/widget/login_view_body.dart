@@ -90,7 +90,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text(
-                      "don\'t have an account?",
+                      "don't have an account?",
                       style: TextStyle(color: Colors.white),
                     ),
                     GestureDetector(
@@ -98,7 +98,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const RegisterScreen(),
+                              builder: (context) => const RegisterView(),
                             ));
                       },
                       child: const Text(

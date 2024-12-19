@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:wedding_card/features/auth/presentation/view/widget/register_view_body.dart';
 
-class RegisterScreen extends StatefulWidget {
-  const RegisterScreen({super.key});
+class RegisterView extends StatefulWidget {
+  const RegisterView({super.key});
 
-  static String id = 'RegisterScreen';
+  static String id = 'RegisterView';
 
   @override
-  State<RegisterScreen> createState() => _RegisterScreenState();
+  State<RegisterView> createState() => _RegisterViewState();
 }
 
-class _RegisterScreenState extends State<RegisterScreen> {
+class _RegisterViewState extends State<RegisterView> {
 
 
   

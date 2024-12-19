@@ -1,4 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:go_router/go_router.dart';
+import 'package:wedding_card/features/auth/data/repos/auth_repo_impl.dart';
+import 'package:wedding_card/features/auth/domain/repos/auth_repo.dart';
+import 'package:wedding_card/features/auth/domain/usecases/login_user_usecase.dart';
+import 'package:wedding_card/features/auth/domain/usecases/register_user_usecase.dart';
+import 'package:wedding_card/features/auth/presentation/view/login_view.dart';
+import 'package:wedding_card/features/auth/presentation/view/register_view.dart';
+import 'package:wedding_card/features/auth/presentation/view_model/blocs/auth_bloc.dart';
 import 'package:wedding_card/features/home/presentation/view/home_view.dart';
 import 'package:wedding_card/features/home/presentation/view_model/card_data_cubit/card_data_cubit.dart';
 import 'package:wedding_card/features/home/presentation/view_model/drawer_image_cubit/drawer_image_cubit.dart';
@@ -7,6 +15,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 abstract class AppRoutes {
   static const kHomeView = '/homeView';
+  static const kLoginView = '/loginView';
+  static const kRegisterView = '/registerView';
   static final routes = GoRouter(routes: [
     GoRoute(
       path: '/',
@@ -24,6 +34,50 @@ abstract class AppRoutes {
           ),
         ],
         child: const HomeView(),
+      ),
+    ),
+    GoRoute(
+      path: kLoginView,
+      builder: (context, state) => MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => AuthBloc(
+              RegisterUserUsecase(
+                AuthRepoImpl(
+                  FirebaseAuth.instance,
+                ),
+              ),
+              LoginUserUsecase(
+                AuthRepoImpl(
+                  FirebaseAuth.instance,
+                ),
+              ),
+            ),
+          ),
+        ],
+        child: const LoginView(),
+      ),
+    ),
+    GoRoute(
+      path: kRegisterView,
+      builder: (context, state) => MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => AuthBloc(
+              RegisterUserUsecase(
+                AuthRepoImpl(
+                  FirebaseAuth.instance,
+                ),
+              ),
+              LoginUserUsecase(
+                AuthRepoImpl(
+                  FirebaseAuth.instance,
+                ),
+              ),
+            ),
+          ),
+        ],
+        child: const RegisterView(),
       ),
     ),
   ]);

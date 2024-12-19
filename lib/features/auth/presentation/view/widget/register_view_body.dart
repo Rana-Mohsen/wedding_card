@@ -131,23 +131,4 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
     );
   }
 
-  //   _validateForm() async {
-  //   if (_formKey.currentState!.validate()) {
-  //     isLoading = true;
-  //     setState(() {});
-  //     try {
-  //       await FirebaseService.createUser(email: email!, password: password!);
-  //       // Navigator.pushReplacement(context,
-  //       //     MaterialPageRoute(builder: (context) => const Navigation()));
-  //     } on FirebaseAuthException catch (e) {
-  //       if (e.code == "weak_password") {
-  //         snackBarMessage(context, "your password is weak");
-  //       } else if (e.code == "email-already-in-use") {
-  //         snackBarMessage(context, "email is already in use");
-  //       }
-  //     }
-  //     isLoading = false;
-  //     setState(() {});
-  //   }
-  // }
 }
