@@ -5,17 +5,19 @@ abstract class AuthState {}
 
 class AuthInitial extends AuthState {}
 
-
 class AuthLoginSuccess extends AuthState {
   final User user;
 
   AuthLoginSuccess({required this.user});
 }
 
-class AuthLoginFailure extends AuthState {}
+class AuthLoginFailure extends AuthState {
+  final String msg;
+
+  AuthLoginFailure(this.msg);
+}
 
 class AuthLoginLoading extends AuthState {}
-
 
 class AuthRegisterSuccess extends AuthState {
   final User user;
@@ -23,6 +25,10 @@ class AuthRegisterSuccess extends AuthState {
   AuthRegisterSuccess({required this.user});
 }
 
-class AuthRegisterFailure extends AuthState {}
+class AuthRegisterFailure extends AuthState {
+  final String msg;
+
+  AuthRegisterFailure(this.msg);
+}
 
 class AuthRegisterLoading extends AuthState {}

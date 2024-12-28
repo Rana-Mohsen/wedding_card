@@ -23,6 +23,7 @@ abstract class AppRoutes {
       path: '/',
       builder: (context, state) => const SplashView(),
     ),
+    
     GoRoute(
       path: kHomeView,
       builder: (context, state) => MultiBlocProvider(
@@ -39,31 +40,11 @@ abstract class AppRoutes {
     ),
     GoRoute(
       path: kLoginView,
-      builder: (context, state) => MultiBlocProvider(
-        providers: [
-          BlocProvider(
-            create: (context) => AuthBloc(
-              RegisterUserUsecase(getIt.get<AuthRepoImpl>()),
-              LoginUserUsecase(getIt.get<AuthRepoImpl>()),
-            ),
-          ),
-        ],
-        child: const LoginView(),
-      ),
+      builder: (context, state) => const LoginView(),
     ),
     GoRoute(
       path: kRegisterView,
-      builder: (context, state) => MultiBlocProvider(
-        providers: [
-          BlocProvider(
-            create: (context) => AuthBloc(
-              RegisterUserUsecase(getIt.get<AuthRepoImpl>()),
-              LoginUserUsecase(getIt.get<AuthRepoImpl>()),
-            ),
-          ),
-        ],
-        child: const RegisterView(),
-      ),
+      builder: (context, state) => const RegisterView(),
     ),
   ]);
 }

@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:wedding_card/core/utils/functions/snack_bar.dart';
+import 'package:wedding_card/core/utils/routes.dart';
 import 'package:wedding_card/core/validators.dart';
 import 'package:wedding_card/features/auth/presentation/view/register_view.dart';
 import 'package:wedding_card/features/auth/presentation/view/widget/custom_textformfield.dart';
 import 'package:wedding_card/features/auth/presentation/view/widget/custome_button.dart';
+import 'package:wedding_card/features/auth/presentation/view/widget/switch_text.dart';
+import 'package:wedding_card/features/auth/presentation/view_model/blocs/auth_bloc.dart';
 
 class LoginViewBody extends StatefulWidget {
   const LoginViewBody({super.key});
@@ -13,7 +19,7 @@ class LoginViewBody extends StatefulWidget {
 }
 
 class _LoginViewBodyState extends State<LoginViewBody> {
-    String? email;
+  String? email;
   String? password;
   bool isLoading = false;
   bool visible = true;
@@ -21,102 +27,102 @@ class _LoginViewBodyState extends State<LoginViewBody> {
 
   @override
   Widget build(BuildContext context) {
-    return ModalProgressHUD(
-      inAsyncCall: isLoading,
-      child: Scaffold(
-        //backgroundColor: kPrimaryColor,
-        body: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Form(
-            key: _formKey,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Spacer(
-                  flex: 3,
-                ),
-                Text(
-                  "LOGIN",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
+    return BlocConsumer<AuthBloc, AuthState>(listener: (context, state) {
+      if (state is AuthLoginFailure) {
+        snackBarMessage(context, state.msg);
+      }else if(state is AuthLoginSuccess){
+         GoRouter.of(context)
+                            .pushReplacement(AppRoutes.kHomeView);
+      }
+    }, builder: (context, state) {
+      return ModalProgressHUD(
+        inAsyncCall: state is AuthLoginLoading,
+        child: Scaffold(
+          backgroundColor: Colors.pinkAccent,
+          body: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Form(
+              key: _formKey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Spacer(
+                    flex: 3,
                   ),
-                ),
-                const Spacer(
-                  flex: 1,
-                ),
-                CustomTextFormField(
-                    validator: Validators.emailValidator,
-                    onChange: (value) {
-                      email = value;
-                    },
-                    hintText: 'Email'),
-                const SizedBox(
-                  height: 15,
-                ),
-                CustomTextFormField(
-                    obscure: visible,
-                    icon: Padding(
-                      padding: const EdgeInsets.only(right: 8.0),
-                      child: IconButton(
-                        icon: visible
-                            ? const Icon(Icons.remove_red_eye)
-                            : const Icon(Icons.visibility_off),
-                        onPressed: () {
-                          setState(() {
-                            visible = !visible;
-                          });
-                        },
-                      ),
+                  const Text(
+                    "LOGIN",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
                     ),
-                    validator: Validators.passwordValidator,
-                    onChange: (value) {
-                      password = value;
-                    },
-                    hintText: 'Password'),
-                const SizedBox(
-                  height: 30,
-                ),
-                CustomeButton(
-                  onTap:// _validateLoginForm
-                  (){},
-                  text: 'LOGIN',
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text(
-                      "don't have an account?",
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const RegisterView(),
-                            ));
+                  ),
+                  const Spacer(
+                    flex: 1,
+                  ),
+                  CustomTextFormField(
+                      validator: Validators.emailValidator,
+                      onChange: (value) {
+                        email = value;
                       },
-                      child: const Text(
-                        "Register",
-                        style: TextStyle(fontWeight: FontWeight.w600),
+                      hintText: 'Email'),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  CustomTextFormField(
+                      obscure: visible,
+                      icon: Padding(
+                        padding: const EdgeInsets.only(right: 8.0),
+                        child: IconButton(
+                          icon: visible
+                              ? const Icon(Icons.remove_red_eye)
+                              : const Icon(Icons.visibility_off),
+                          onPressed: () {
+                            setState(() {
+                              visible = !visible;
+                            });
+                          },
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-                const Spacer(
-                  flex: 4,
-                )
-              ],
+                      validator: Validators.passwordValidator,
+                      onChange: (value) {
+                        password = value;
+                      },
+                      hintText: 'Password'),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  CustomeButton(
+                    onTap: // _validateLoginForm
+                        () {
+                      if (_formKey.currentState!.validate()) {
+                        BlocProvider.of<AuthBloc>(context).add(
+                            AuthLoginEvent(email: email!, password: password!));
+                       
+                      }
+                    },
+                    text: 'LOGIN',
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  SwitchText(
+                    text1: "don't have an account?",
+                    text2: 'Register',
+                    onTap: () {
+                      GoRouter.of(context).push(AppRoutes.kRegisterView);
+                    },
+                  ),
+                  const Spacer(
+                    flex: 4,
+                  )
+                ],
+              ),
             ),
           ),
         ),
-      ),
-    );
+      );
+    });
   }
   //   _validateLoginForm() async {
   //   if (_formKey.currentState!.validate()) {

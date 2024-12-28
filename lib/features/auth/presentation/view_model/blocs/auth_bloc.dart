@@ -19,7 +19,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           email: event.email, password: event.email);
 
       login.fold((failure) {
-        emit(AuthLoginFailure());
+        emit(AuthLoginFailure(failure.message));
       }, (user) {
         emit(AuthLoginSuccess(user: user));
       });
@@ -31,7 +31,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           email: event.email, password: event.email);
 
       register.fold((failure) {
-        emit(AuthRegisterFailure());
+        emit(AuthRegisterFailure(failure.message));
       }, (user) {
         emit(AuthRegisterSuccess(user: user));
       });
