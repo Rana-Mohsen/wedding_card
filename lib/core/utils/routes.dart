@@ -40,11 +40,29 @@ abstract class AppRoutes {
     ),
     GoRoute(
       path: kLoginView,
-      builder: (context, state) => const LoginView(),
+      builder: (context, state) => MultiBlocProvider(
+        providers: [
+         BlocProvider(
+            create: (context) => AuthBloc(
+              RegisterUserUsecase(getIt.get<AuthRepoImpl>()),
+              LoginUserUsecase(getIt.get<AuthRepoImpl>()),
+            ),
+          )
+        ],
+        child: const LoginView()),
     ),
     GoRoute(
       path: kRegisterView,
-      builder: (context, state) => const RegisterView(),
+      builder: (context, state) => MultiBlocProvider(
+        providers: [
+         BlocProvider(
+            create: (context) => AuthBloc(
+              RegisterUserUsecase(getIt.get<AuthRepoImpl>()),
+              LoginUserUsecase(getIt.get<AuthRepoImpl>()),
+            ),
+          )
+        ],
+        child: const RegisterView()),
     ),
   ]);
 }
