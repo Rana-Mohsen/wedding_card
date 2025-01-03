@@ -6,7 +6,7 @@ Future<DateTime?> selectDate(BuildContext context, DateTime initialDate) async {
       context: context,
       initialDate: initialDate,
       firstDate: DateTime(2000),
-      lastDate: DateTime(2025),
+      lastDate: DateTime(DateTime.now().year),
     );
   }
 }

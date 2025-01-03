@@ -14,18 +14,6 @@ class CardWithImageBody extends StatefulWidget {
 }
 
 class _CardWithImageBodyState extends State<CardWithImageBody> {
-  // final TextEditingController _nameController = TextEditingController();
-  // final TextEditingController _locationController = TextEditingController();
-  // late DateTime _selectedDate;
-  // late File _pickedImage;
-  // _submitData() {
-  //   String name = _nameController.text;
-  //   String location = _locationController.text;
-  //   String date = _selectedDate.toString();
-  //   String image = _pickedImage.path.toString();
-  //   print(name + "\n" + location + "\n" + date + "\n" + image);
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -37,32 +25,19 @@ class _CardWithImageBodyState extends State<CardWithImageBody> {
       ),
       child: const Column(
         children: [
-           Spacer(
+          Spacer(
             flex: 10,
           ),
           Center(
-            child: PickedImage(
-              
-            ),
+            child: PickedImage(),
           ),
-           Spacer(
+          Spacer(
             flex: 2,
           ),
-          CustomNamesTextfield(
-            // controller: _nameController,
-          ),
-          CustomDatePicker(
-            // onDatePicked: (date) {
-            //   _selectedDate = date;
-            // },
-          ),
-          // Spacer(
-          //   flex: 1,
-          // ),
-          CustomLocation(
-            // controller: _locationController,
-          ),
-           Spacer(
+          CustomNamesTextfield(),
+          CustomDatePicker(),
+          CustomLocation(),
+          Spacer(
             flex: 5,
           ),
         ],
