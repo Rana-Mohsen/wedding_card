@@ -9,17 +9,19 @@ part 'card_data_state.dart';
 
 class CardDataCubit extends Cubit<CardDataState> {
   CardDataCubit() : super(CardDataInitial());
-   TextEditingController nameController = TextEditingController();
-   TextEditingController locationController = TextEditingController();
-   DateTime selectedDate = DateTime.now();
-   File pickedImage = File("");
+  TextEditingController nameController = TextEditingController();
+  TextEditingController locationController = TextEditingController();
+  DateTime selectedDate = DateTime.now();
+  File pickedImage = File("");
 
   submitData() {
     String name = nameController.text;
     String location = locationController.text;
     String date = selectedDate.toString();
     String image = pickedImage.path.toString();
-    print(name + "\n" + location + "\n" + date + "\n" + image);
+    CardDataEntity card = CardDataEntity(
+        cardId: "1", image: image, location: location, data: date, names: name);
+    print("$name\n$location\n$date\n$image");
     emit(CardDataSubmited());
   }
 }
