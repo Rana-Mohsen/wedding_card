@@ -1,13 +1,12 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:go_router/go_router.dart';
 import 'package:wedding_card/core/utils/service_locator.dart';
 import 'package:wedding_card/features/auth/data/repos/auth_repo_impl.dart';
-import 'package:wedding_card/features/auth/domain/repos/auth_repo.dart';
 import 'package:wedding_card/features/auth/domain/usecases/login_user_usecase.dart';
 import 'package:wedding_card/features/auth/domain/usecases/register_user_usecase.dart';
 import 'package:wedding_card/features/auth/presentation/view/login_view.dart';
 import 'package:wedding_card/features/auth/presentation/view/register_view.dart';
 import 'package:wedding_card/features/auth/presentation/view_model/blocs/auth_bloc.dart';
+import 'package:wedding_card/features/home/data/repos/card_repo_impl.dart';
 import 'package:wedding_card/features/home/presentation/view/home_view.dart';
 import 'package:wedding_card/features/home/presentation/view_model/card_data_cubit/card_data_cubit.dart';
 import 'package:wedding_card/features/home/presentation/view_model/drawer_image_cubit/drawer_image_cubit.dart';
@@ -32,7 +31,7 @@ abstract class AppRoutes {
             create: (context) => DrawerImageCubit(),
           ),
           BlocProvider(
-            create: (context) => CardDataCubit(),
+            create: (context) => CardDataCubit(getIt.get<CardRepoImpl>()),
           ),
         ],
         child: const HomeView(),
