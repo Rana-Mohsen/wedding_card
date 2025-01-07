@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wedding_card/core/services/firebase_service.dart';
 import 'package:wedding_card/core/utils/routes.dart';
 import 'package:wedding_card/core/utils/service_locator.dart';
-import 'package:wedding_card/features/auth/data/repos/auth_repo_impl.dart';
-import 'package:wedding_card/features/auth/domain/usecases/login_user_usecase.dart';
-import 'package:wedding_card/features/auth/domain/usecases/register_user_usecase.dart';
-import 'package:wedding_card/features/auth/presentation/view_model/blocs/auth_bloc.dart';
-import 'package:wedding_card/features/splash/presentaion/view/splash_view.dart';
+
 
 void main() async {
   //WidgetsFlutterBinding.ensureInitialized();

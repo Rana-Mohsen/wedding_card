@@ -27,12 +27,13 @@ abstract class AppRoutes {
       path: kHomeView,
       builder: (context, state) => MultiBlocProvider(
         providers: [
+          //  BlocProvider(
+          //   create: (context) => CardDataCubit(getIt.get<CardRepoImpl>()),
+          // ),
           BlocProvider(
             create: (context) => DrawerImageCubit(),
           ),
-          BlocProvider(
-            create: (context) => CardDataCubit(getIt.get<CardRepoImpl>()),
-          ),
+         
         ],
         child: const HomeView(),
       ),
