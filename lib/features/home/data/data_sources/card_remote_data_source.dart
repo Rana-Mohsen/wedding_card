@@ -13,6 +13,6 @@ class CardRemoteDataSourceImpl extends CardRemoteDataSource {
   @override
   void addUserCard({required CardDataEntity card}) async{
     final String? email = await authRepo.getEmail();
-    db.collection("users").doc(email).set(card.toMap());
+    db.collection("users").doc(email).collection("cards").add(card.toMap());
   }
 }

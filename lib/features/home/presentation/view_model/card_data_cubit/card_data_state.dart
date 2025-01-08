@@ -4,7 +4,5 @@ part of 'card_data_cubit.dart';
 abstract class CardDataState {}
 
 class CardDataInitial extends CardDataState {}
-class CardDataChecking extends CardDataState {}
-class CardDataCheckingFailled extends CardDataState {}
-class CardDataCheckingSucceded extends CardDataState {}
+class CardDataFailled extends CardDataState {}
 class CardDataSubmited extends CardDataState {}

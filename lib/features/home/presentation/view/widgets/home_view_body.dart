@@ -46,8 +46,9 @@ class HomeViewBody extends StatelessWidget {
                   child: CustomIconButton(
                     icon: Icons.check_circle_outline_outlined,
                     onPressed: () {
-                      BlocProvider.of<CardDataCubit>(context).submitData();
-                      submitDialog(context: context, onPressed: () {});
+                      submitDialog(
+                          context: context,
+                          submitCard: BlocProvider.of<CardDataCubit>(context));
                     },
                   ));
             }

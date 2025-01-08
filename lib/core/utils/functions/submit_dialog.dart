@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:wedding_card/features/home/presentation/view_model/card_data_cubit/card_data_cubit.dart';
 
 void submitDialog(
-    {required BuildContext context, required void Function()? onPressed}) {
+    {required BuildContext context, required CardDataCubit  submitCard}) {
   showDialog(
     context: context,
     builder: (BuildContext context) {
@@ -22,6 +23,7 @@ void submitDialog(
           ),
           TextButton(
             onPressed: () {
+              submitCard.submitData();
               GoRouter.of(context).pop();
             },
             style: buttonStyle(
