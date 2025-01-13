@@ -9,6 +9,7 @@ import 'package:wedding_card/features/auth/presentation/view_model/blocs/auth_bl
 import 'package:wedding_card/features/home/presentation/view/home_view.dart';
 import 'package:wedding_card/features/home/presentation/view_model/drawer_image_cubit/drawer_image_cubit.dart';
 import 'package:wedding_card/features/info/presentation/view/info_view.dart';
+import 'package:wedding_card/features/info/presentation/view/my_cards_view.dart';
 import 'package:wedding_card/features/splash/presentaion/view/splash_view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -17,6 +18,7 @@ abstract class AppRoutes {
   static const kRegisterView = '/registerView';
   static const kHomeView = '/homeView';
   static const kInfoView = '/infoView';
+  static const kMyCardsView = '/myCardsView';
 
   static final routes = GoRouter(routes: [
     GoRoute(
@@ -59,6 +61,10 @@ abstract class AppRoutes {
     GoRoute(
       path: kInfoView,
       builder: (context, state) => const InfoView(),
+    ),
+     GoRoute(
+      path: kMyCardsView,
+      builder: (context, state) => const MyCardsView(),
     ),
   ]);
 }

@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:wedding_card/core/utils/routes.dart';
 import 'package:wedding_card/features/info/presentation/view/widgets/custom_list_tile.dart';
 
 class InfoViewBody extends StatelessWidget {
   const InfoViewBody({super.key});
   final List<Map<String, dynamic>> listTileData = const [
     {"icon": Icons.person_2_rounded, "title": "My Data", "route": ""},
-    {"icon": Icons.celebration_rounded, "title": "My Cards", "route": ""}
+    {
+      "icon": Icons.celebration_rounded,
+      "title": "My Cards",
+      "route": AppRoutes.kMyCardsView
+    }
   ];
   @override
   Widget build(BuildContext context) {
