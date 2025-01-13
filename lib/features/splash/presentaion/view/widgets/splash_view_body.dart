@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
-import 'package:wedding_card/core/utils/assets.dart';
 import 'package:wedding_card/core/utils/routes.dart';
 import 'package:wedding_card/features/splash/presentaion/view/widgets/spalsh_logo.dart';
 

@@ -5,7 +5,6 @@ import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:wedding_card/core/utils/functions/snack_bar.dart';
 import 'package:wedding_card/core/utils/routes.dart';
 import 'package:wedding_card/core/validators.dart';
-import 'package:wedding_card/features/auth/presentation/view/register_view.dart';
 import 'package:wedding_card/features/auth/presentation/view/widget/custom_textformfield.dart';
 import 'package:wedding_card/features/auth/presentation/view/widget/custome_button.dart';
 import 'package:wedding_card/features/auth/presentation/view/widget/switch_text.dart';

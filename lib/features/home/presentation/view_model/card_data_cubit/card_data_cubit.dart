@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:meta/meta.dart';
 import 'package:wedding_card/features/home/data/repos/card_repo_impl.dart';
 import 'package:wedding_card/features/home/domain/entity/card_data_entity.dart';
 

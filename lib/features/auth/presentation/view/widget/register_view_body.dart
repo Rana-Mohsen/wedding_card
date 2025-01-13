@@ -1,9 +1,7 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
-import 'package:wedding_card/core/services/firebase_service.dart';
 import 'package:wedding_card/core/utils/functions/snack_bar.dart';
 import 'package:wedding_card/core/utils/routes.dart';
 import 'package:wedding_card/core/validators.dart';

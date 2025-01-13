@@ -1,10 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wedding_card/features/home/presentation/view/widgets/custom_icon_button.dart';
 import 'package:wedding_card/features/home/presentation/view/widgets/custom_location_textfield.dart';
-import 'package:wedding_card/features/home/presentation/view/widgets/custom_names_textfield.dart';
 import 'package:wedding_card/features/home/presentation/view_model/card_data_cubit/card_data_cubit.dart';
 
 class CustomLocation extends StatefulWidget {

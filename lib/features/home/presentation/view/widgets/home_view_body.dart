@@ -1,10 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:wedding_card/core/utils/functions/submit_dialog.dart';
+import 'package:wedding_card/core/utils/routes.dart';
 import 'package:wedding_card/features/home/presentation/view/widgets/custom_icon_button.dart';
-import 'package:wedding_card/features/home/presentation/view/widgets/picked_image.dart';
 import 'package:wedding_card/features/home/presentation/view_model/card_data_cubit/card_data_cubit.dart';
 import 'package:wedding_card/features/home/presentation/view_model/drawer_image_cubit/drawer_image_cubit.dart';
 
@@ -60,7 +59,7 @@ class HomeViewBody extends StatelessWidget {
             right: _sidePos,
             child: CustomIconButton(
               icon: Icons.info,
-              onPressed: () {},
+              onPressed: () => GoRouter.of(context).push(AppRoutes.kInfoView),
             )),
       ],
     );

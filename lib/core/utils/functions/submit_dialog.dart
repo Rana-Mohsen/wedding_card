@@ -20,7 +20,7 @@ void submitDialog(
         if (state is CardDataSubmited) {
           saveBG = Colors.grey;
           backBG = Colors.pinkAccent;
-           excute = false;
+          excute = false;
         }
       }, builder: (context, state) {
         return AlertDialog(
@@ -38,7 +38,7 @@ void submitDialog(
             ),
             SizedBox(
               height: context.screenHeight * 0.055,
-              width: context.screenWidth * 0.12,
+              width: context.screenWidth * 0.2,
               child: Stack(
                 alignment: AlignmentDirectional.center,
                 fit: StackFit.expand,
