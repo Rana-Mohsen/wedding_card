@@ -9,7 +9,7 @@ import 'features/home/presentation/view_model/card_data_cubit/card_data_cubit.da
 void main() async {
   //WidgetsFlutterBinding.ensureInitialized();
   await FirebaseService.init();
-    setupServiceLocator();
+  setupServiceLocator();
 
   runApp(const MyApp());
 }
@@ -23,18 +23,18 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-            create: (context) => CardDataCubit(getIt.get<CardRepoImpl>()),
-          ),
+          create: (context) => CardDataCubit(getIt.get<CardRepoImpl>()),
+        ),
       ],
       child: MaterialApp.router(
         routerConfig: AppRoutes.routes,
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
-            // fontFamily: "Montserrat",
-            //colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-            //useMaterial3: true,
-            ),
+          //fontFamily: "Montserrat",
+          //colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          //useMaterial3: true,
+        ),
       ),
     );
   }

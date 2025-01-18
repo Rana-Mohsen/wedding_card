@@ -1,7 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:wedding_card/core/utils/assets.dart';
 import 'package:wedding_card/core/utils/media_quairy_extention.dart';
+import 'package:wedding_card/features/info/presentation/view/widgets/cards_container_icon_button.dart';
 import 'package:wedding_card/features/info/presentation/view/widgets/my_card_container_text.dart';
+import 'package:wedding_card/features/info/presentation/view/widgets/row_of_Icons.dart';
 
 class MyCardContainer extends StatelessWidget {
   const MyCardContainer({super.key});
@@ -9,7 +13,7 @@ class MyCardContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: context.screenHeight * 0.3,
+      height: context.screenHeight * 0.31,
       decoration: BoxDecoration(
         color: Colors.cyan,
         boxShadow: [
@@ -24,18 +28,29 @@ class MyCardContainer extends StatelessWidget {
       ),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Row(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            SizedBox(
-              height: context.screenHeight * 0.22,
-              child: Image.asset(Assets.homeBackgroundBlueAndGoldExample),
+            Expanded(
+              child: Row(
+                children: [
+                  SizedBox(
+                    height: context.screenHeight * 0.22,
+                    child: Image.asset(Assets.homeBackgroundBlueAndGoldExample),
+                  ),
+                  const SizedBox(
+                      width:
+                          10), // Add some spacing between the image and the texts
+                  const Expanded(child: MyCardContainerText()),
+                ],
+              ),
             ),
-            const SizedBox(
-                width: 10), // Add some spacing between the image and the texts
-            const MyCardContainerText(),
+            const RowOfIcons(),
           ],
         ),
       ),
     );
   }
 }
+
+

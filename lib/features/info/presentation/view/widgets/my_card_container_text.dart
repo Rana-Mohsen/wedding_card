@@ -6,22 +6,20 @@ class MyCardContainerText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ConstrainedBox(
-      constraints: BoxConstraints(maxWidth: context.screenWidth * 0.45),
-      child: const Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Text("Names: ppppp p ppppppp"),
-          Text("Date: ppppp p ppppppp"),
-          Text(
-            "Location: lksdjdsjsklsjdkljskjdklsjdkljskjdlsjk",
-            overflow: TextOverflow.ellipsis,
-            maxLines: 2,
-            // softWrap: false,
-          ),
-        ],
-      ),
+    return const Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        Text("Names: ppppp p ppppppp"),
+        Text("Date: ppppp p ppppppp"),
+        Text(
+          "Location: lksdjdsjsklsjdkljskjdklsjdkljskjdlsjk",
+          overflow: TextOverflow.ellipsis,
+          maxLines: 2,
+          style: TextStyle(color: Colors.white, fontSize: 15),
+          // softWrap: false,
+        ),
+      ],
     );
   }
 }
