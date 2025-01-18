@@ -7,8 +7,11 @@ class MyCardsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.pinkAccent,
-      appBar: AppBar(),
+      appBar: AppBar(
+        elevation: 1,
+        shadowColor: Colors.black54,
+        title: const Text("0 Cards"),
+      ),
       body: const MyCardsViewBody(),
     );
   }
