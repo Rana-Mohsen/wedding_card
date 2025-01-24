@@ -29,7 +29,7 @@ class CardDataCubit extends Cubit<CardDataState> {
   void submitData() {
     CardDataEntity card = _createCardData();
     cardRepoImpl.addCard(card);
-    print("${card.names}\n${card.location}\n${card.data}\n${card.image}");
+    print("${card.names}\n${card.location}\n${card.date}\n${card.image}");
     emit(CardDataSubmited());
   }
 
@@ -42,7 +42,7 @@ class CardDataCubit extends Cubit<CardDataState> {
       cardId: "1",
       image: pickedImage.path,
       location: locationController.text,
-      data: selectedDate.toString(),
+      date: selectedDate.toString(),
       names: nameController.text,
     );
   }

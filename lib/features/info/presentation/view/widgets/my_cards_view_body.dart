@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:wedding_card/features/info/presentation/view/widgets/my_card_container.dart';
 
 class MyCardsViewBody extends StatelessWidget {
@@ -6,9 +7,9 @@ class MyCardsViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.all(4.0),
-      child: MyCardContainer()
+    return ListView.builder(
+      itemCount: 10,
+      itemBuilder: (context, index) => MyCardContainer(),
     );
   }
 }

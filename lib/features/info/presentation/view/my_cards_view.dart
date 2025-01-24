@@ -8,8 +8,9 @@ class MyCardsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 1,
-        shadowColor: Colors.black54,
+        elevation: 0.5,
+        scrolledUnderElevation: 8,
+        shadowColor: Colors.grey,
         title: const Text("0 Cards"),
       ),
       body: const MyCardsViewBody(),
